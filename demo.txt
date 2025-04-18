@@ -1,16 +1,33 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
-
-  <proxies>
-    <proxy>
-      <id>example-proxy</id>
-      <active>true</active>
-      <protocol>http</protocol>
-      <host>proxy.example.com</host> <!-- Replace with actual proxy host -->
-      <port>8080</port>              <!-- Replace with actual proxy port -->
-      <nonProxyHosts>localhost|127.0.0.1</nonProxyHosts>
-    </proxy>
-  </proxies>
-
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <proxies>
+        <!-- Proxy for verizon.com domains - DIRECT (no proxy) -->
+        <!-- Not needed in Maven settings as DIRECT means no proxy -->
+        
+        <!-- Proxy for csr-portal.msn.com -->
+        <proxy>
+            <id>verizon-proxy</id>
+            <active>true</active>
+            <protocol>http</protocol>
+            <host>fhdcproxy.verizon.com</host>
+            <port>80</port>
+            <nonProxyHosts>verizon.com|*.verizon.com|localhost|127.0.0.1</nonProxyHosts>
+        </proxy>
+        
+        <!-- Proxy for chime.aws -->
+        <proxy>
+            <id>local-proxy</id>
+            <active>false</active> <!-- inactive by default as it's localhost -->
+            <protocol>http</protocol>
+            <host>127.0.0.1</host>
+            <port>80</port>
+            <nonProxyHosts>*</nonProxyHosts>
+        </proxy>
+        
+        <!-- For tracfone.com domains - DIRECT (no proxy) -->
+        <!-- Add them to nonProxyHosts -->
+    </proxies>
+    
+    <!-- Other Maven settings can go here -->
 </settings>
