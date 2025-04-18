@@ -1,0 +1,42 @@
+Microsoft Windows [Version 10.0.22631.5189]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\jjhlsa>mvn dependency:purge-local-repository
+[INFO] Scanning for projects...
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.2.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.2.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-clean-plugin:jar:3.2.0
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/3.1.1/maven-install-plugin-3.1.1.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-install-plugin:3.1.1: Plugin org.apache.maven.plugins:maven-install-plugin:3.1.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-install-plugin:jar:3.1.1
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/3.1.1/maven-deploy-plugin-3.1.1.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-deploy-plugin:3.1.1: Plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-deploy-plugin:jar:3.1.1
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.12.1/maven-site-plugin-3.12.1.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-site-plugin:3.12.1: Plugin org.apache.maven.plugins:maven-site-plugin:3.12.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-site-plugin:jar:3.12.1
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/3.1.0/maven-antrun-plugin-3.1.0.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-antrun-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-antrun-plugin:3.1.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-antrun-plugin:jar:3.1.0
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-assembly-plugin/3.6.0/maven-assembly-plugin-3.6.0.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-assembly-plugin:3.6.0: Plugin org.apache.maven.plugins:maven-assembly-plugin:3.6.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-assembly-plugin:jar:3.6.0
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.6.0/maven-dependency-plugin-3.6.0.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-dependency-plugin:3.6.0: Plugin org.apache.maven.plugins:maven-dependency-plugin:3.6.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-dependency-plugin:jar:3.6.0
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-release-plugin/3.0.1/maven-release-plugin-3.0.1.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-release-plugin:3.0.1: Plugin org.apache.maven.plugins:maven-release-plugin:3.0.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-release-plugin:jar:3.0.1
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
+[WARNING] Could not transfer metadata org.apache.maven.plugins/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): Connect to fhdcproxy.verizon.com:80 [fhdcproxy.verizon.com/148.131.15.33] failed: Connect timed out
+[WARNING] Could not transfer metadata org.codehaus.mojo/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): Connect to fhdcproxy.verizon.com:80 [fhdcproxy.verizon.com/148.131.15.33] failed: Connect timed out
+[WARNING] org.apache.maven.plugins/maven-metadata.xml failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer metadata org.apache.maven.plugins/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): Connect to fhdcproxy.verizon.com:80 [fhdcproxy.verizon.com/148.131.15.33] failed: Connect timed out
+[WARNING] org.codehaus.mojo/maven-metadata.xml failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.mojo/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): Connect to fhdcproxy.verizon.com:80 [fhdcproxy.verizon.com/148.131.15.33] failed: Connect timed out
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:30 min
+[INFO] Finished at: 2025-04-18T10:13:25+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] No plugin found for prefix 'dependency' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (C:\Users\jjhlsa\.m2\repository), central (https://repo.maven.apache.org/maven2)] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoPluginFoundForPrefixException
+
+C:\Users\jjhlsa>
