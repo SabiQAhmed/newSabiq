@@ -1,42 +1,120 @@
-Microsoft Windows [Version 10.0.22631.5189]
-(c) Microsoft Corporation. All rights reserved.
+package com.OptixCXM.AYS;
 
-C:\Users\jjhlsa>mvn dependency:purge-local-repository
-[INFO] Scanning for projects...
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.pom
-[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.2.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.2.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-clean-plugin:jar:3.2.0
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/3.1.1/maven-install-plugin-3.1.1.pom
-[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-install-plugin:3.1.1: Plugin org.apache.maven.plugins:maven-install-plugin:3.1.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-install-plugin:jar:3.1.1
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/3.1.1/maven-deploy-plugin-3.1.1.pom
-[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-deploy-plugin:3.1.1: Plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-deploy-plugin:jar:3.1.1
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.12.1/maven-site-plugin-3.12.1.pom
-[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-site-plugin:3.12.1: Plugin org.apache.maven.plugins:maven-site-plugin:3.12.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-site-plugin:jar:3.12.1
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/3.1.0/maven-antrun-plugin-3.1.0.pom
-[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-antrun-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-antrun-plugin:3.1.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-antrun-plugin:jar:3.1.0
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-assembly-plugin/3.6.0/maven-assembly-plugin-3.6.0.pom
-[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-assembly-plugin:3.6.0: Plugin org.apache.maven.plugins:maven-assembly-plugin:3.6.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-assembly-plugin:jar:3.6.0
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.6.0/maven-dependency-plugin-3.6.0.pom
-[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-dependency-plugin:3.6.0: Plugin org.apache.maven.plugins:maven-dependency-plugin:3.6.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-dependency-plugin:jar:3.6.0
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-release-plugin/3.0.1/maven-release-plugin-3.0.1.pom
-[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-release-plugin:3.0.1: Plugin org.apache.maven.plugins:maven-release-plugin:3.0.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-release-plugin:jar:3.0.1
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
-[WARNING] Could not transfer metadata org.apache.maven.plugins/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): Connect to fhdcproxy.verizon.com:80 [fhdcproxy.verizon.com/148.131.15.33] failed: Connect timed out
-[WARNING] Could not transfer metadata org.codehaus.mojo/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): Connect to fhdcproxy.verizon.com:80 [fhdcproxy.verizon.com/148.131.15.33] failed: Connect timed out
-[WARNING] org.apache.maven.plugins/maven-metadata.xml failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer metadata org.apache.maven.plugins/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): Connect to fhdcproxy.verizon.com:80 [fhdcproxy.verizon.com/148.131.15.33] failed: Connect timed out
-[WARNING] org.codehaus.mojo/maven-metadata.xml failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.mojo/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): Connect to fhdcproxy.verizon.com:80 [fhdcproxy.verizon.com/148.131.15.33] failed: Connect timed out
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:30 min
-[INFO] Finished at: 2025-04-18T10:13:25+05:30
-[INFO] ------------------------------------------------------------------------
-[ERROR] No plugin found for prefix 'dependency' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (C:\Users\jjhlsa\.m2\repository), central (https://repo.maven.apache.org/maven2)] -> [Help 1]
-[ERROR]
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR]
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoPluginFoundForPrefixException
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.util.Set;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import com.e2e.Utilities.BaseClass;
+import com.e2e.Utilities.CommonFunctions;
+import com.e2e.Utilities.WebDriverInstance;
+import com.e2e.Utilities.WebDriverUtility;
 
-C:\Users\jjhlsa>
+public class EVO_Login extends BaseClass {
+    
+    private static WebDriverInstance wdinstance;
+    public static String originalWindowHandle;
+    
+    // Property variables (keep your existing property declarations)
+    public static String ApplPropFilePath = "PropertyFiles/CXM.properties";
+    public static String url = CommonFunctions.getPropValuesFromFile(ApplPropFilePath, "CXM_URL");
+    // ... [keep all your other property declarations] ...
+    public static String EWO_L1 = CommonFunctions.getPropValuesFromFile(ApplPropFilePath, "EWO_L1");
+
+    @Test
+    public static void CXMLogin() {
+        try {
+            // Initialize Chrome driver
+            wdinstance = new WebDriverInstance();
+            driver = wdinstance.getWebDriverInstace("Chrome");
+            originalWindowHandle = driver.getWindowHandle();
+            
+            driver.get(url);
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("document.body.style.zoom='100%'");
+            
+            // Logging into CXM Application
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoUsername), 30).sendKeys(username);
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoPassword), 30).sendKeys(password);
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoSignIn), 30).click();
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(Iagree), 30).click();
+            
+            System.out.println("********CXM logged in Successfully*********");
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    @Test(dependsOnMethods = "CXMLogin")
+    public static void Construction_WorkAssignment() {
+        try {
+            // [Your existing Chrome actions...]
+            Thread.sleep(2000);
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(SecondToggle), 30).click();
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_clear), 30).click();
+            Thread.sleep(2000);
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_Date), 30).click();
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_DateToday), 30).click();
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_Region), 30).click();
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_RegionCP), 30).click();
+            Thread.sleep(2000);
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(searchbtn), 30).click();
+            Thread.sleep(3000);
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(EWO_L1), 30).click();
+            Thread.sleep(3000);
+            
+            // Open Edge using Robot - this will automatically navigate to the target URL
+            Robot robot = new Robot();
+            Thread.sleep(2000);
+            robot.keyPress(KeyEvent.VK_TAB);
+            robot.keyRelease(KeyEvent.VK_TAB);
+            robot.keyPress(KeyEvent.VK_TAB);
+            robot.keyRelease(KeyEvent.VK_TAB);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+            
+            // Wait for Edge to fully open and load
+            Thread.sleep(5000);
+            
+            // Get all window handles and switch to Edge
+            Set<String> allWindows = driver.getWindowHandles();
+            for(String window : allWindows) {
+                if(!window.equals(originalWindowHandle)) {
+                    driver.switchTo().window(window);
+                    break;
+                }
+            }
+            
+            // Now work with the already-opened Edge page
+            System.out.println("Current URL in Edge: " + driver.getCurrentUrl());
+            
+            // Perform actions in Edge
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoUsername), 30).sendKeys(username);
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoPassword), 30).sendKeys(password);
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoSignIn), 30).click();
+            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(Iagree), 30).click();
+            
+            System.out.println("********Edge browser controlled successfully*********");
+            
+            // Switch back to original Chrome window if needed
+            driver.switchTo().window(originalWindowHandle);
+            
+        } catch (Exception e) {
+            System.out.println("Error in Construction_WorkAssignment: " + e.toString());
+        }
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        try {
+            if (driver != null) {
+                driver.quit();
+            }
+        } catch (Exception e) {
+            System.out.println("Error while closing browser: " + e.toString());
+        }
+    }
+}
