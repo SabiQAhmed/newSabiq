@@ -1,4 +1,2 @@
-WebElement jobElement = driver.findElement(By.xpath("//*[contains(text(),'" + JobID + "')]"));
-Assert.assertTrue(jobElement.isDisplayed(), "Job ID not visible on screen!");
-
-//span[@class='p-column-title' and contains(text(), 'Supervisor/Technician')]
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("document.querySelector('div.sidebarBody.panel-body.ng-star-inserted').scrollTop = document.querySelector('div.sidebarBody.panel-body.ng-star-inserted').scrollHeight");
