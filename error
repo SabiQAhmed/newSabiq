@@ -1,120 +1,46 @@
-package com.OptixCXM.AYS;
-
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.util.Set;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import com.e2e.Utilities.BaseClass;
-import com.e2e.Utilities.CommonFunctions;
-import com.e2e.Utilities.WebDriverInstance;
-import com.e2e.Utilities.WebDriverUtility;
-
-public class EVO_Login extends BaseClass {
-    
-    private static WebDriverInstance wdinstance;
-    public static String originalWindowHandle;
-    
-    // Property variables (keep your existing property declarations)
-    public static String ApplPropFilePath = "PropertyFiles/CXM.properties";
-    public static String url = CommonFunctions.getPropValuesFromFile(ApplPropFilePath, "CXM_URL");
-    // ... [keep all your other property declarations] ...
-    public static String EWO_L1 = CommonFunctions.getPropValuesFromFile(ApplPropFilePath, "EWO_L1");
-
-    @Test
-    public static void CXMLogin() {
-        try {
-            // Initialize Chrome driver
-            wdinstance = new WebDriverInstance();
-            driver = wdinstance.getWebDriverInstace("Chrome");
-            originalWindowHandle = driver.getWindowHandle();
-            
-            driver.get(url);
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("document.body.style.zoom='100%'");
-            
-            // Logging into CXM Application
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoUsername), 30).sendKeys(username);
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoPassword), 30).sendKeys(password);
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoSignIn), 30).click();
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(Iagree), 30).click();
-            
-            System.out.println("********CXM logged in Successfully*********");
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-    }
-
-    @Test(dependsOnMethods = "CXMLogin")
-    public static void Construction_WorkAssignment() {
-        try {
-            // [Your existing Chrome actions...]
-            Thread.sleep(2000);
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(SecondToggle), 30).click();
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_clear), 30).click();
-            Thread.sleep(2000);
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_Date), 30).click();
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_DateToday), 30).click();
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_Region), 30).click();
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_RegionCP), 30).click();
-            Thread.sleep(2000);
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(searchbtn), 30).click();
-            Thread.sleep(3000);
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(EWO_L1), 30).click();
-            Thread.sleep(3000);
-            
-            // Open Edge using Robot - this will automatically navigate to the target URL
-            Robot robot = new Robot();
-            Thread.sleep(2000);
-            robot.keyPress(KeyEvent.VK_TAB);
-            robot.keyRelease(KeyEvent.VK_TAB);
-            robot.keyPress(KeyEvent.VK_TAB);
-            robot.keyRelease(KeyEvent.VK_TAB);
-            robot.keyPress(KeyEvent.VK_ENTER);
-            robot.keyRelease(KeyEvent.VK_ENTER);
-            
-            // Wait for Edge to fully open and load
-            Thread.sleep(5000);
-            
-            // Get all window handles and switch to Edge
-            Set<String> allWindows = driver.getWindowHandles();
-            for(String window : allWindows) {
-                if(!window.equals(originalWindowHandle)) {
-                    driver.switchTo().window(window);
-                    break;
-                }
-            }
-            
-            // Now work with the already-opened Edge page
-            System.out.println("Current URL in Edge: " + driver.getCurrentUrl());
-            
-            // Perform actions in Edge
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoUsername), 30).sendKeys(username);
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoPassword), 30).sendKeys(password);
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoSignIn), 30).click();
-            WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(Iagree), 30).click();
-            
-            System.out.println("********Edge browser controlled successfully*********");
-            
-            // Switch back to original Chrome window if needed
-            driver.switchTo().window(originalWindowHandle);
-            
-        } catch (Exception e) {
-            System.out.println("Error in Construction_WorkAssignment: " + e.toString());
-        }
-    }
-
-    @AfterClass
-    public static void tearDown() {
-        try {
-            if (driver != null) {
-                driver.quit();
-            }
-        } catch (Exception e) {
-            System.out.println("Error while closing browser: " + e.toString());
-        }
-    }
-}
+	else if(browserName.equals("Edge")) {
+				if(StringUtils.isNotBlank(environment) && "AWS".equalsIgnoreCase(environment)){
+					System.setProperty("wdm.proxy", "proxy.ebiz.verizon.com:80");
+					System.out.println("Inside edge AWS");
+                    System.setProperty("webdriver.edge.driver","C:\\Users\\jjhlsa\\msedgedriver.exe");
+                    EdgeOptions options = new EdgeOptions();
+                    List<String> args = Arrays.asList("disable-features=msEdgeDevToolsWdpRemoteDebugging", "ie-mode-force");
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    map.put("args", args);
+                    options.setCapability("ms:edgeOptions", map);
+                    options.setCapability("excludeSwitches", "remote-debugging-port=0");
+                   original = new EdgeDriver(options);
+					WebDriverListener CustomListener=new DriverEventListener();
+					WebDriver E_driver = new EventFiringDecorator(CustomListener).decorate(original);
+					driver=E_driver;
+					driver.manage().window().maximize();
+					
+				}
+				else if(StringUtils.isNotBlank(environment) && "Local".equalsIgnoreCase(environment)){
+                     
+					//WebDriverManager.edgedriver().setup(); 
+					System.out.println("Inside Edge local");
+					System.setProperty("webdriver.edge.driver","C:\\Users\\jjhlsa\\msedgedriver.exe");
+					//System.out.println("Browser executable path is set as :- "+System.getProperty("webdriver.edge.driver"));
+					EdgeOptions options = new EdgeOptions();
+                    List<String> args = Arrays.asList("disable-features=msEdgeDevToolsWdpRemoteDebugging", "ie-mode-force");
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    map.put("args", args);
+                    options.setCapability("ms:edgeOptions", map);
+                    options.setCapability("excludeSwitches", "remote-debugging-port=0");
+                    original = new EdgeDriver(options);
+					WebDriverListener CustomListener=new DriverEventListener();
+					WebDriver E_driver = new EventFiringDecorator(CustomListener).decorate(original);
+					driver=E_driver;
+					driver.manage().window().maximize();
+				}
+				else{
+					PrintUtil.logError("Environment is null", logger, "EnvironmentNotSet",driver,"FAIL");
+				}
+			}
+			else {
+				driver = null;
+			
+			}
+			
+			
