@@ -1,46 +1,56 @@
-	else if(browserName.equals("Edge")) {
-				if(StringUtils.isNotBlank(environment) && "AWS".equalsIgnoreCase(environment)){
-					System.setProperty("wdm.proxy", "proxy.ebiz.verizon.com:80");
-					System.out.println("Inside edge AWS");
-                    System.setProperty("webdriver.edge.driver","C:\\Users\\jjhlsa\\msedgedriver.exe");
-                    EdgeOptions options = new EdgeOptions();
-                    List<String> args = Arrays.asList("disable-features=msEdgeDevToolsWdpRemoteDebugging", "ie-mode-force");
-                    Map<String, Object> map = new HashMap<String, Object>();
-                    map.put("args", args);
-                    options.setCapability("ms:edgeOptions", map);
-                    options.setCapability("excludeSwitches", "remote-debugging-port=0");
-                   original = new EdgeDriver(options);
-					WebDriverListener CustomListener=new DriverEventListener();
-					WebDriver E_driver = new EventFiringDecorator(CustomListener).decorate(original);
-					driver=E_driver;
-					driver.manage().window().maximize();
-					
-				}
-				else if(StringUtils.isNotBlank(environment) && "Local".equalsIgnoreCase(environment)){
-                     
-					//WebDriverManager.edgedriver().setup(); 
-					System.out.println("Inside Edge local");
-					System.setProperty("webdriver.edge.driver","C:\\Users\\jjhlsa\\msedgedriver.exe");
-					//System.out.println("Browser executable path is set as :- "+System.getProperty("webdriver.edge.driver"));
-					EdgeOptions options = new EdgeOptions();
-                    List<String> args = Arrays.asList("disable-features=msEdgeDevToolsWdpRemoteDebugging", "ie-mode-force");
-                    Map<String, Object> map = new HashMap<String, Object>();
-                    map.put("args", args);
-                    options.setCapability("ms:edgeOptions", map);
-                    options.setCapability("excludeSwitches", "remote-debugging-port=0");
-                    original = new EdgeDriver(options);
-					WebDriverListener CustomListener=new DriverEventListener();
-					WebDriver E_driver = new EventFiringDecorator(CustomListener).decorate(original);
-					driver=E_driver;
-					driver.manage().window().maximize();
-				}
-				else{
-					PrintUtil.logError("Environment is null", logger, "EnvironmentNotSet",driver,"FAIL");
-				}
-			}
-			else {
-				driver = null;
-			
-			}
-			
-			
+@Test
+public static void Construction_WorkAssignment() {
+	try {
+		Thread.sleep(5000);
+		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(SecondToggle), 30).click();
+		Thread.sleep(2000);
+   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_clear), 30).click();
+   		Thread.sleep(2000);
+   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_Date), 30).click();
+   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_DateToday), 30).click();
+   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_Region), 30).click();
+   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_RegionCP), 30).click();
+		Thread.sleep(2000);
+   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(searchbtn), 30).click();
+
+		Thread.sleep(3000);
+
+		// Inject JS to capture console.log URLs
+		((JavascriptExecutor) driver).executeScript(
+			"window.loggedUrls = [];" +
+			"const originalLog = console.log;" +
+			"console.log = function(msg) {" +
+			"  if (typeof msg === 'string' && msg.includes('http')) {" +
+			"    window.loggedUrls.push(msg);" +
+			"  }" +
+			"  originalLog.apply(console, arguments);" +
+			"};"
+		);
+
+		// Click EWO_L1 (List View)
+		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(EWO_L1), 30).click();
+
+		Thread.sleep(3000); // Give time for the JS to log URL
+
+		// Retrieve the captured URLs
+		List<String> urls = (List<String>) ((JavascriptExecutor) driver)
+			.executeScript("return window.loggedUrls;");
+
+		if (urls.size() > 0) {
+			String capturedUrl = urls.get(0);
+			System.out.println("Captured VBuild URL: " + capturedUrl);
+			driver.navigate().to(capturedUrl);
+		} else {
+			System.out.println("No VBuild URL captured from console.");
+		}
+
+		// Continue login if VBuild loaded
+		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoUsername), 30).sendKeys(username);
+   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoPassword), 30).sendKeys(password);
+   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoSignIn), 30).click();
+   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(Iagree), 30).click();	
+
+	} catch (Exception e) {
+		System.out.println("Error in Construction_WorkAssignment: " + e.getMessage());
+	}
+}
