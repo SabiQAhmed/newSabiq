@@ -1,11 +1,25 @@
-String consoleLog = "Console log with URL: https://... Not allowed to launch 'microsoft-edge:https://vbuildgp..." ; // replace with actual log string
+import java.util.regex.*;
 
-Pattern pattern = Pattern.compile("Not allowed to launch 'microsoft-edge:(.*?)'");
-Matcher matcher = pattern.matcher(consoleLog);
+try {
+    LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
 
-if (matcher.find()) {
-    String edgeUrl = matcher.group(1);
-    System.out.println("Extracted Edge URL: " + edgeUrl);
-} else {
-    System.out.println("No URL found");
+    for (LogEntry entry : logEntries) {
+        String msg = entry.getMessage();
+
+        // Regex to extract URL from message
+        Pattern pattern = Pattern.compile("Not allowed to launch 'microsoft-edge:(.*?)'");
+        Matcher matcher = pattern.matcher(msg);
+
+        if (matcher.find()) {
+            String edgeUrl = matcher.group(1);
+            System.out.println("Extracted Edge URL: " + edgeUrl);
+            // Optional: Open in a new Edge browser instance
+            // WebDriver edgeDriver = new EdgeDriver();
+            // edgeDriver.get(edgeUrl);
+        }
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+} finally {
+    // driver.quit(); // Optional
 }
