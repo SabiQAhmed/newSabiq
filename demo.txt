@@ -1,25 +1,84 @@
-import java.util.regex.*;
+[RemoteTestNG] detected TestNG version 7.5.0
+log4j:WARN No appenders could be found for logger (org.testng.TestNG).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+C:\Users\jjhlsa\Downloads\e2e-centerart-Prodapt_branch\e2e-centerart-Prodapt_branch
+Extent Report Started
+Inside Chrome Local instance
+Starting ChromeDriver 135.0.7049.95 (de2eb485a1951079e63bdb57ce25544d2dc79c15-refs/branch-heads/7049@{#1836}) on port 23730
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully on port 23730.
+Apr 24, 2025 7:54:10 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 135
+Apr 24, 2025 7:54:10 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.9.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+before event firing decorator
+After event firing decorator
+Trying to get URL : https://occsys-cloud.ebiz.verizon.com/optixcxm/#/optixcxm/dashboard
+Got URL : https://occsys-cloud.ebiz.verizon.com/optixcxm/#/optixcxm/dashboard
+Trying to find Element By : By.xpath: //input[@data-prompt='User ID']
+Trying to find Element By : By.xpath: //input[@data-prompt='User ID']
+Trying to find Element By : By.xpath: //input[@data-prompt='User ID']
+Trying to find Element By : By.xpath: //input[@data-prompt='User ID']
+Found Element By : By.xpath: //input[@data-prompt='User ID']
+Trying to find Element By : By.xpath: //input[@data-prompt='Password']
+Found Element By : By.xpath: //input[@data-prompt='Password']
+Trying to find Element By : By.xpath: //input[@id='loginButton']
+Found Element By : By.xpath: //input[@id='loginButton']
+Trying to click on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //input[@id='loginButton']]
+Clicked on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //input[@id='loginButton']]
+Trying to find Element By : By.xpath: //button[@id='btnOk']
+Found Element By : By.xpath: //button[@id='btnOk']
+Trying to find Element By : By.xpath: //button[@id='btnOk']
+Found Element By : By.xpath: //button[@id='btnOk']
+Trying to click on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //button[@id='btnOk']]
+Clicked on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //button[@id='btnOk']]
+********CXM logged in Successfully*********
+Trying to find Element By : By.xpath: //div[text()=' Construction Work Assignment ']/span
+Found Element By : By.xpath: //div[text()=' Construction Work Assignment ']/span
+Trying to click on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //div[text()=' Construction Work Assignment ']/span]
+Clicked on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //div[text()=' Construction Work Assignment ']/span]
+Trying to find Element By : By.xpath: //*[@id="assignment-clear-button"]
+Found Element By : By.xpath: //*[@id="assignment-clear-button"]
+Trying to click on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //*[@id="assignment-clear-button"]]
+Clicked on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //*[@id="assignment-clear-button"]]
+Trying to find Element By : By.xpath: //*[@id="to-date"]
+Found Element By : By.xpath: //*[@id="to-date"]
+Trying to click on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //*[@id="to-date"]]
+Clicked on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //*[@id="to-date"]]
+Trying to find Element By : By.xpath: //button[.//span[text()='Today']]
+Found Element By : By.xpath: //button[.//span[text()='Today']]
+Trying to click on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //button[.//span[text()='Today']]]
+Clicked on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //button[.//span[text()='Today']]]
+Trying to find Element By : By.xpath: //*[@id="opt-grm-region_ngd"]/pcd-dropdown/div/div[2]
+Found Element By : By.xpath: //*[@id="opt-grm-region_ngd"]/pcd-dropdown/div/div[2]
+Trying to click on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //*[@id="opt-grm-region_ngd"]/pcd-dropdown/div/div[2]]
+Clicked on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //*[@id="opt-grm-region_ngd"]/pcd-dropdown/div/div[2]]
+Trying to find Element By : By.xpath: //span[contains(text(),'CP')]
+Found Element By : By.xpath: //span[contains(text(),'CP')]
+Trying to click on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //span[contains(text(),'CP')]]
+Clicked on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //span[contains(text(),'CP')]]
+Trying to find Element By : By.xpath: //button[@title='Search']
+Found Element By : By.xpath: //button[@title='Search']
+Trying to click on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //button[@title='Search']]
+Clicked on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //button[@title='Search']]
+Trying to find Element By : By.xpath: //*[@id="pr_id_8-table"]/tbody/tr[1]/td[2]/div[1]/a
+Found Element By : By.xpath: //*[@id="pr_id_8-table"]/tbody/tr[1]/td[2]/div[1]/a
+Trying to click on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //*[@id="pr_id_8-table"]/tbody/tr[1]/td[2]/div[1]/a]
+Clicked on [[ChromeDriver: chrome on WINDOWS (7cc72792a5986f7eeb2aaf91b552b075)] -> xpath: //*[@id="pr_id_8-table"]/tbody/tr[1]/td[2]/div[1]/a]
+PASSED: CXMLogin
+PASSED: Construction_WorkAssignment
 
-try {
-    LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
+===============================================
+    Default test
+    Tests run: 2, Failures: 0, Skips: 0
+===============================================
 
-    for (LogEntry entry : logEntries) {
-        String msg = entry.getMessage();
+Extent Report Ended
 
-        // Regex to extract URL from message
-        Pattern pattern = Pattern.compile("Not allowed to launch 'microsoft-edge:(.*?)'");
-        Matcher matcher = pattern.matcher(msg);
+===============================================
+Default suite
+Total tests run: 2, Passes: 2, Failures: 0, Skips: 0
+===============================================
 
-        if (matcher.find()) {
-            String edgeUrl = matcher.group(1);
-            System.out.println("Extracted Edge URL: " + edgeUrl);
-            // Optional: Open in a new Edge browser instance
-            // WebDriver edgeDriver = new EdgeDriver();
-            // edgeDriver.get(edgeUrl);
-        }
-    }
-} catch (Exception e) {
-    e.printStackTrace();
-} finally {
-    // driver.quit(); // Optional
-}
