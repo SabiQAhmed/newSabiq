@@ -1,6 +1,46 @@
-// Locate the scrollable element
-        WebElement scrollablePanel = driver.findElement(By.cssSelector("div.panel-body.co-panel.mt-2"));
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.*;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.logging.LogType;
 
-        // Scroll using JavaScript
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight", scrollablePanel);
+import java.util.logging.Level;
+
+public class ConsoleURLReader {
+    public static void main(String[] args) {
+        // Enable browser logging
+        LoggingPreferences logs = new LoggingPreferences();
+        logs.enable(LogType.BROWSER, Level.ALL);
+
+        ChromeOptions options = new ChromeOptions();
+        options.setCapability("goog:loggingPrefs", logs);
+
+        WebDriver driver = new ChromeDriver(options);
+
+        try {
+            driver.get("https://example.com");
+
+            // Click something that triggers a console log with the URL
+            WebElement button = driver.findElement(By.id("clickMe"));
+            button.click();
+
+            // Wait a moment for logs to populate
+            Thread.sleep(3000);
+
+            // Get browser logs
+            LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
+
+            for (LogEntry entry : logEntries) {
+                String msg = entry.getMessage();
+                if (msg.contains("http")) { // crude filter to catch URLs
+                    System.out.println("Console Log with URL: " + msg);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            driver.quit();
+        }
+    }
+}
