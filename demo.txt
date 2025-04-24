@@ -1,13 +1,11 @@
-LogEntries logs = driver.manage().logs().get(LogType.BROWSER);
-for (LogEntry entry : logs) {
-    String message = entry.getMessage();
-    if (message.contains("https://vbuildpguat")) {
-        String[] split = message.split("https://");
-        if (split.length > 1) {
-            String fullUrl = "https://" + split[1].split("\"")[0];
-            System.out.println("Captured URL: " + fullUrl);
-            driver.navigate().to(fullUrl);  // Navigate to captured URL
-            break;
-        }
-    }
+String consoleLog = "Console log with URL: https://... Not allowed to launch 'microsoft-edge:https://vbuildgp..." ; // replace with actual log string
+
+Pattern pattern = Pattern.compile("Not allowed to launch 'microsoft-edge:(.*?)'");
+Matcher matcher = pattern.matcher(consoleLog);
+
+if (matcher.find()) {
+    String edgeUrl = matcher.group(1);
+    System.out.println("Extracted Edge URL: " + edgeUrl);
+} else {
+    System.out.println("No URL found");
 }
