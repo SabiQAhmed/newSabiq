@@ -1,56 +1,6 @@
-@Test
-public static void Construction_WorkAssignment() {
-	try {
-		Thread.sleep(5000);
-		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(SecondToggle), 30).click();
-		Thread.sleep(2000);
-   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_clear), 30).click();
-   		Thread.sleep(2000);
-   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_Date), 30).click();
-   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_DateToday), 30).click();
-   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_Region), 30).click();
-   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(CWA_RegionCP), 30).click();
-		Thread.sleep(2000);
-   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(searchbtn), 30).click();
+// Locate the scrollable element
+        WebElement scrollablePanel = driver.findElement(By.cssSelector("div.panel-body.co-panel.mt-2"));
 
-		Thread.sleep(3000);
-
-		// Inject JS to capture console.log URLs
-		((JavascriptExecutor) driver).executeScript(
-			"window.loggedUrls = [];" +
-			"const originalLog = console.log;" +
-			"console.log = function(msg) {" +
-			"  if (typeof msg === 'string' && msg.includes('http')) {" +
-			"    window.loggedUrls.push(msg);" +
-			"  }" +
-			"  originalLog.apply(console, arguments);" +
-			"};"
-		);
-
-		// Click EWO_L1 (List View)
-		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(EWO_L1), 30).click();
-
-		Thread.sleep(3000); // Give time for the JS to log URL
-
-		// Retrieve the captured URLs
-		List<String> urls = (List<String>) ((JavascriptExecutor) driver)
-			.executeScript("return window.loggedUrls;");
-
-		if (urls.size() > 0) {
-			String capturedUrl = urls.get(0);
-			System.out.println("Captured VBuild URL: " + capturedUrl);
-			driver.navigate().to(capturedUrl);
-		} else {
-			System.out.println("No VBuild URL captured from console.");
-		}
-
-		// Continue login if VBuild loaded
-		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoUsername), 30).sendKeys(username);
-   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoPassword), 30).sendKeys(password);
-   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(ssoSignIn), 30).click();
-   		WebDriverUtility.waitForVisibilityOfElementLocated(driver, wait, By.xpath(Iagree), 30).click();	
-
-	} catch (Exception e) {
-		System.out.println("Error in Construction_WorkAssignment: " + e.getMessage());
-	}
-}
+        // Scroll using JavaScript
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight", scrollablePanel);
