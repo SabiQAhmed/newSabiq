@@ -1,0 +1,25 @@
+import java.util.regex.*;
+
+try {
+    LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
+
+    for (LogEntry entry : logEntries) {
+        String msg = entry.getMessage();
+
+        // Regex to extract URL from message
+        Pattern pattern = Pattern.compile("Not allowed to launch 'microsoft-edge:(.*?)'");
+        Matcher matcher = pattern.matcher(msg);
+
+        if (matcher.find()) {
+            String edgeUrl = matcher.group(1);
+            System.out.println("Extracted Edge URL: " + edgeUrl);
+            // Optional: Open in a new Edge browser instance
+            // WebDriver edgeDriver = new EdgeDriver();
+            // edgeDriver.get(edgeUrl);
+        }
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+} finally {
+    // driver.quit(); // Optional
+}
