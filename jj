@@ -1,25 +1,243 @@
-import java.util.regex.*;
+package driverfactory;
 
-try {
-    LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
 
-    for (LogEntry entry : logEntries) {
-        String msg = entry.getMessage();
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
+import java.util.function.Supplier;
 
-        // Regex to extract URL from message
-        Pattern pattern = Pattern.compile("Not allowed to launch 'microsoft-edge:(.*?)'");
-        Matcher matcher = pattern.matcher(msg);
+import org.openqa.selenium.Credentials;
+import org.openqa.selenium.HasAuthentication;
+//import org.openqa.selenium.HasDevTools;
 
-        if (matcher.find()) {
-            String edgeUrl = matcher.group(1);
-            System.out.println("Extracted Edge URL: " + edgeUrl);
-            // Optional: Open in a new Edge browser instance
-            // WebDriver edgeDriver = new EdgeDriver();
-            // edgeDriver.get(edgeUrl);
-        }
-    }
-} catch (Exception e) {
-    e.printStackTrace();
-} finally {
-    // driver.quit(); // Optional
+import org.openqa.selenium.devtools.HasDevTools;
+//import org.openqa.selenium.devtools.v86.network.Network;
+import org.openqa.selenium.devtools.v130.network.Network;
+import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.UsernameAndPassword;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.DevTools;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import hooks.TestDataContext;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import Actions.Canvas_App_Functions;
+import Actions.Common_App_Functions;
+
+import java.util.Map;
+import java.util.function.Predicate;
+
+public class BaseTestCommon {
+	public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
+	public static ThreadLocal<String> sessionId = new ThreadLocal<>();
+
+	public static AppiumDriverLocalService service;
+	public String platform;
+	public static URL url;
+	public static DesiredCapabilities capabilities;
+	static String Grid = null;
+
+	public static void setDriver(String appName) throws Exception {
+		try {
+			setup_Web(appName);
+		} catch (MalformedURLException | InterruptedException e) {
+			System.out.println("Error setting up device farm" + e.getMessage());
+		}
+	}
+
+	public static RemoteWebDriver getDriver() throws Exception {
+		try {
+			String current_app_Name;
+			if (driver.get() != null) {
+				System.out.println(getCurrentTimestamp() + "WebDriver is initialized: " + driver.get());
+			} else {
+				System.out.println(getCurrentTimestamp() + "WebDriver is not initialized.");
+
+				current_app_Name = TestDataContext.getData("current_appName");
+				setDriver(current_app_Name);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return driver.get();
+	}
+
+	public static void closeDriver() {
+		try {
+			if (getDriver() != null) {
+				getDriver().quit();
+				// driver.remove();
+			}
+		} catch (Exception e) {
+			System.out.println("Error closing driver" + e.getMessage());
+		}
+	}
+
+	public static String getCurrentTimestamp() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		String timestamp = "[" + dtf.format(LocalDateTime.now()) + "]" + "----" + "[" + Thread.currentThread().getName()
+				+ "]" + "----";
+		return timestamp;
+	}
+
+	public static void setCapabilityWithCheck(String key, Object value) {
+		if (capabilities.getCapability(key) != null) {
+			System.out.println("Duplicate key detected - " + key + ". Updating the value to: " + value.toString());
+		}
+		capabilities.setCapability(key, value);
+		System.out.println(getCurrentTimestamp() + "Setting capability: " + key + " = " + value.toString());
+	}
+
+	public static void setup_Web(String appName) throws Exception {
+		System.out.println(getCurrentTimestamp() + "setup_Web Started");
+		/*
+		 * if (System.getProperty("GRID") != null) { Grid = System.getProperty("GRID");
+		 * System.out.println(getCurrentTimestamp() + "GRID :" + Grid); }
+		 */
+		// Grid="https://qa-selenium-hub-kube.ebiz.verizon.com/";
+		try {
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			chromeOptions.addArguments("--start-maximized");
+
+			if (Grid != null) {
+				// String proxyServer = "http://proxy.ebiz.verizon.com:80";
+				// chromeOptions.addArguments("--proxy-server=" + proxyServer);
+				/*
+				 * chromeOptions.addArguments("--disable-gpu");
+				 * chromeOptions.addArguments("--ignore-certificate-errors");
+				 * chromeOptions.addArguments("--disable-dev-shm-usage");
+				 * chromeOptions.addArguments("--no-sandbox");
+				 * chromeOptions.addArguments("--dns-prefetch-disable");
+				 * chromeOptions.addArguments("--enable-automation");
+				 * chromeOptions.addArguments("--allow-no-sandbox-job");
+				 * chromeOptions.setCapability("platformName", "linux");
+				 */
+				chromeOptions.addArguments("--incognito");
+
+				System.out.println("*********RUNNING ON GRID WEB CHROME BROWSER**********" + Grid);
+				System.out.println("Used Grid: " + Grid);
+				driver.set(new RemoteWebDriver(new URL(Grid), chromeOptions));
+			} else {
+				// chromeOptions.addArguments("--incognito");
+				// options.addArguments("--start-maximized");
+				 chromeOptions.addArguments("--disable-gpu");
+				chromeOptions.addArguments("--ignore-certificate-errors");
+				chromeOptions.addArguments("--disable-dev-shm-usage");
+				chromeOptions.addArguments("--no-sandbox");
+				chromeOptions.addArguments("--dns-prefetch-disable");
+				chromeOptions.addArguments("--enable-automation");
+				chromeOptions.addArguments("--allow-no-sandbox-job");
+
+			chromeOptions.addArguments("--incognito");
+			
+			String proxyServer = "http://proxy.ebiz.verizon.com:80";
+				 chromeOptions.addArguments("--proxy-server=" + proxyServer);
+			
+				// Add a valid User-Agent
+			chromeOptions.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36");
+
+			// Set Accept-Language header
+			chromeOptions.addArguments("--lang=en-US");
+
+				System.out.println("*********RUNNING ON WINDOWS WEB BROWSER**********");
+				TestDataContext.setData("current_appName ", appName);
+				System.setProperty("webdriver.chrome.driver",
+						System.getProperty("user.dir") + "//Drivers//chromedriver.exe");
+				
+				try {
+					// Initialize ChromeDriver
+					
+					String encodedPassword = (System.getProperty("PASSWORD") != null) ? System.getProperty("PASSWORD")
+					        : Common_App_Functions.configProperty("CanvasPassword");
+					String CanvasUser = (System.getProperty("USERNAME") != null) ? System.getProperty("USERNAME")
+					        : Common_App_Functions.configProperty("CanvasUser");
+
+					String decodedpswd = Common_App_Functions.stringdecoder(encodedPassword);
+					driver.set(new ChromeDriver(chromeOptions)); // working line
+
+					// Set up DevTools
+					DevTools devTools = ((HasDevTools) driver.get()).getDevTools();
+					devTools.createSession();
+					devTools.send(Network.enable(Optional.of(100000), Optional.of(100000), Optional.of(100000)));
+
+					devTools.addListener(Network.responseReceived(), response -> {
+					    String requestId = response.getRequestId().toString(); // Convert RequestId to String
+					    try {
+					        // Get the response body
+					        String body = devTools.send(Network.getResponseBody(response.getRequestId())).getBody();
+					        if (body != null && !body.isEmpty()) {
+					           // System.out.println("Response body for request ID " + requestId );
+					        } else {
+					           // System.out.println("No body available for request ID " + requestId);
+					        }
+					    } catch (Exception e) {
+					       // System.out.println("Unable to get body for request ID " + requestId + ": " + e.getMessage());
+					    }
+					});
+
+					// Log username
+					System.out.println("username: =====>" + CanvasUser);
+
+					// Set up authentication
+					Predicate<URI> uriPredicate = uri -> uri.toString().contains("canvasuat1.ebiz.verizon.com/uuigui/uui/espresso/static/uui3_infra/dist/index.html");
+					Supplier<Credentials> authentication = UsernameAndPassword.of(CanvasUser, decodedpswd);
+					((HasAuthentication) driver.get()).register(uriPredicate, authentication);
+					
+					String url = Canvas_App_Functions.readconfigPropertyfromFile(appName, "appURLLink");
+					
+					System.out.println("Authentication handled successfully for URL: " + url);
+
+					
+
+					System.out.println("--------------------------------------------------------------------");
+					System.out.println("URL  after  Authentication: " + url);
+					System.out.println("--------------------------------------------------------------------");
+
+					// Navigate to the URL
+					driver.get().get(url);
+				} catch (Exception e) {
+					
+					System.out.println("--------------------------------------------------------------------");
+					System.out.println("Navigate to the URL ERROR: " + e.getMessage());
+					System.out.println("--------------------------------------------------------------------");
+
+					// e.printStackTrace();
+				}
+				
+				//System.out.println("webdriver.chrome.driver  : intialized ");
+			}
+
+
+
+
+			//driver.get().get(url);
+			System.out.println("-------------------------------------------------");
+			// System.out.println(driver.get().getCurrentUrl());
+			System.out.println("-------------------------------------------------");
+			driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(60)); // Implicit wait
+			driver.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60)); // Page load timeout
+			driver.get().manage().timeouts().scriptTimeout(Duration.ofSeconds(60)); // Script timeout
+		} catch (MalformedURLException e) {
+			System.out.println("Error initializing WebDriver: " + e.getMessage());
+		}
+	}
+	
+	
+	
+	
+	
+	 // New method for Playwright-based authentication
+    
 }
