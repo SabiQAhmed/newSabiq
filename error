@@ -1,46 +1,156 @@
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.*;
-import org.openqa.selenium.logging.LogEntries;
-import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.logging.LoggingPreferences;
-import org.openqa.selenium.logging.LogType;
+[RemoteTestNG] detected TestNG version 7.8.0
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+[2025/05/21 16:23:08]----[main]---- Setting key: testcaseId --> value: NSOM-55722
+[2025/05/21 16:23:08]----[main]---- Setting key: testcasestatus --> value: FAILED
+ExtentReports object created successfully
+[2025/05/21 16:23:08]----[main]---- Getting key: testcaseId
+Set ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+ driver opened !!
+[2025/05/21 16:23:13]----[main]----setup_Web Started
+*********RUNNING ON WINDOWS WEB BROWSER**********
+[2025/05/21 16:23:13]----[main]---- Setting key: current_appName  --> value: co
+username: =====>NETIVE
+Authentication handled successfully for URL: https://occsys-cloud.ebiz.verizon.com/optixco/#/dashboard
+--------------------------------------------------------------------
+URL  after  Authentication: https://occsys-cloud.ebiz.verizon.com/optixco/#/dashboard
+--------------------------------------------------------------------
+-------------------------------------------------
+-------------------------------------------------
+[2025/05/21 16:23:17]----[main]----setup_Web Started
+*********RUNNING ON WINDOWS WEB BROWSER**********
+[2025/05/21 16:23:17]----[main]---- Setting key: current_appName  --> value: co
+May 21, 2025 4:23:17 PM org.openqa.selenium.devtools.v136.v136Network createSeMessages
+WARNING: Unable to get body for request id interception-job-2.0
+May 21, 2025 4:23:17 PM org.openqa.selenium.devtools.v136.v136Network createSeMessages
+WARNING: Unable to get body for request id interception-job-2.1
+username: =====>NETIVE
+Authentication handled successfully for URL: https://occsys-cloud.ebiz.verizon.com/optixco/#/dashboard
+--------------------------------------------------------------------
+URL  after  Authentication: https://occsys-cloud.ebiz.verizon.com/optixco/#/dashboard
+--------------------------------------------------------------------
+-------------------------------------------------
+-------------------------------------------------
+ driver opened !!
+[2025/05/21 16:23:21]----[main]----WebDriver is initialized: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:21]----[main]---- Setting key: testcasestatus --> value: FAILED
+[2025/05/21 16:23:21]----[main]---- STARTING EXECUTION OF STEP: Enter User ID --> with [XPATH ID] for reference: CO_App_Xpaths--->sso_username : [ACTION] need to be performed: enterText --> with [TESTDATA]: pfcjra
+[2025/05/21 16:23:21]----[main]----WebDriver is initialized: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+May 21, 2025 4:23:21 PM org.openqa.selenium.devtools.v136.v136Network createSeMessages
+WARNING: Unable to get body for request id interception-job-2.0
+[2025/05/21 16:23:21]----[main]---- Driver: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+May 21, 2025 4:23:21 PM org.openqa.selenium.devtools.v136.v136Network createSeMessages
+WARNING: Unable to get body for request id interception-job-2.1
+[2025/05/21 16:23:24]----[main]----[PASS] Execution of: Enter User ID Successful
+[2025/05/21 16:23:24]----[main]---- Element required for the step: Enter User ID --> is visible [XPATH ID] for reference: sso_username --> [STATUS]: true
+[2025/05/21 16:23:24]----[main]----Common_App_Functions--->enterText
+[2025/05/21 16:23:24]----[main]----EXECUTION OF STEP :: Enter User ID : TEXT ENTERED :pfcjra 
+[2025/05/21 16:23:24]----[main]---- Execution of step: Enter User ID with [XPATH ID] for reference: sso_username : [ACTION] performed: Common_App_Functions--->enterText --> [TESTDATA] used: pfcjra --> [STATUS]: true
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+I am inside the text[2025/05/21 16:23:25]----[main]---- Setting key: testcasestatus --> value: PASSED
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+[2025/05/21 16:23:30]----[main]----WebDriver is initialized: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:30]----[main]---- Setting key: testcasestatus --> value: FAILED
+[2025/05/21 16:23:30]----[main]---- STARTING EXECUTION OF STEP: Enter Password --> with [XPATH ID] for reference: CO_App_Xpaths--->sso_pass : [ACTION] need to be performed: enterText --> with [TESTDATA]: Ram@2003
+[2025/05/21 16:23:30]----[main]----WebDriver is initialized: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:30]----[main]---- Driver: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:30]----[main]----[PASS] Execution of: Enter Password Successful
+[2025/05/21 16:23:30]----[main]---- Element required for the step: Enter Password --> is visible [XPATH ID] for reference: sso_pass --> [STATUS]: true
+[2025/05/21 16:23:30]----[main]----Common_App_Functions--->enterText
+[2025/05/21 16:23:30]----[main]----EXECUTION OF STEP :: Enter Password : TEXT ENTERED :Ram@2003 
+[2025/05/21 16:23:30]----[main]---- Execution of step: Enter Password with [XPATH ID] for reference: sso_pass : [ACTION] performed: Common_App_Functions--->enterText --> [TESTDATA] used: Ram@2003 --> [STATUS]: true
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+I am inside the text[2025/05/21 16:23:30]----[main]---- Setting key: testcasestatus --> value: PASSED
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+[2025/05/21 16:23:30]----[main]----WebDriver is initialized: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:30]----[main]---- Setting key: testcasestatus --> value: FAILED
+[2025/05/21 16:23:30]----[main]---- STARTING EXECUTION OF STEP: Click Sign In --> with [XPATH ID] for reference: CO_App_Xpaths--->sso_signIn : [ACTION] need to be performed: click --> with [TESTDATA]: 
+[2025/05/21 16:23:30]----[main]----WebDriver is initialized: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:30]----[main]---- Driver: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:30]----[main]----[PASS] Execution of: Click Sign In Successful
+[2025/05/21 16:23:30]----[main]---- Element required for the step: Click Sign In --> is visible [XPATH ID] for reference: sso_signIn --> [STATUS]: true
+[2025/05/21 16:23:30]----[main]----Common_App_Functions--->click
+[2025/05/21 16:23:30]----[main]-------EXECUTION OF STEP :: CLICK ON Click Sign In IS SUCCESSFUL
+[2025/05/21 16:23:30]----[main]---- Execution of step: Click Sign In with [XPATH ID] for reference: sso_signIn : [ACTION] performed: Common_App_Functions--->click --> [TESTDATA] used:  --> [STATUS]: true
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+I am inside the text[2025/05/21 16:23:30]----[main]---- Setting key: testcasestatus --> value: PASSED
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+[2025/05/21 16:23:30]----[main]----WebDriver is initialized: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:30]----[main]---- Setting key: testcasestatus --> value: FAILED
+[2025/05/21 16:23:30]----[main]---- STARTING EXECUTION OF STEP: Accept popup --> with [XPATH ID] for reference: CO_App_Xpaths--->agree : [ACTION] need to be performed: click --> with [TESTDATA]: 
+[2025/05/21 16:23:30]----[main]----WebDriver is initialized: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:30]----[main]---- Driver: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:30]----[main]----[PASS] Execution of: Accept popup Successful
+[2025/05/21 16:23:30]----[main]---- Element required for the step: Accept popup --> is visible [XPATH ID] for reference: agree --> [STATUS]: true
+[2025/05/21 16:23:30]----[main]----Common_App_Functions--->click
+[2025/05/21 16:23:31]----[main]-------EXECUTION OF STEP :: CLICK ON Accept popup IS SUCCESSFUL
+[2025/05/21 16:23:31]----[main]---- Execution of step: Accept popup with [XPATH ID] for reference: agree : [ACTION] performed: Common_App_Functions--->click --> [TESTDATA] used:  --> [STATUS]: true
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+I am inside the text[2025/05/21 16:23:31]----[main]---- Setting key: testcasestatus --> value: PASSED
+Retrieved ExtentTest object: com.aventstack.extentreports.ExtentTest@5488b5c5
+[2025/05/21 16:23:31]----[main]----WebDriver is initialized: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:31]----[main]---- Setting key: testcasestatus --> value: FAILED
+[2025/05/21 16:23:31]----[main]---- STARTING EXECUTION OF STEP: Scroll to Worlist Toggle --> with [XPATH ID] for reference: CO_App_Xpaths--->WorkList_Toggle : [ACTION] need to be performed: scrollIntoView --> with [TESTDATA]: 
+[2025/05/21 16:23:31]----[main]----WebDriver is initialized: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+[2025/05/21 16:23:31]----[main]---- Driver: ChromeDriver: chrome on windows (b73f1816e58dad2bead3402489124ff6)
+May 21, 2025 4:23:32 PM org.openqa.selenium.devtools.v136.v136Network createSeMessages
+WARNING: Unable to get body for request id interception-job-63.0
+May 21, 2025 4:23:33 PM org.openqa.selenium.devtools.v136.v136Network createSeMessages
+WARNING: Unable to get body for request id interception-job-71.0
+[2025/05/21 16:23:36]----[main]----[PASS] Execution of: Scroll to Worlist Toggle Successful
+[2025/05/21 16:23:36]----[main]---- Element required for the step: Scroll to Worlist Toggle --> is visible [XPATH ID] for reference: WorkList_Toggle --> [STATUS]: true
+[2025/05/21 16:23:36]----[main]----Common_App_Functions--->scrollIntoView
+Exception occurred during step execution: Actions.Common_App_Functions.scrollIntoView(org.openqa.selenium.remote.RemoteWebDriver,java.lang.String,org.openqa.selenium.WebElement,java.lang.String)
+FAILED: Optix_AYS_Cases.Worklist_ActionList.Actionlist
+java.lang.AssertionError: Exception occurred during step execution: Actions.Common_App_Functions.scrollIntoView(org.openqa.selenium.remote.RemoteWebDriver,java.lang.String,org.openqa.selenium.WebElement,java.lang.String)
+	at org.testng.Assert.fail(Assert.java:111)
+	at TestExecutor.TestCaseExecutor.executeStep(TestCaseExecutor.java:119)
+	at TestExecutor.TestImpementation.stepwiseExecution(TestImpementation.java:35)
+	at Optix_AYS_Cases.Worklist_ActionList.Actionlist(Worklist_ActionList.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 
-import java.util.logging.Level;
 
-public class ConsoleURLReader {
-    public static void main(String[] args) {
-        // Enable browser logging
-        LoggingPreferences logs = new LoggingPreferences();
-        logs.enable(LogType.BROWSER, Level.ALL);
+===============================================
+    Default test
+    Tests run: 1, Failures: 1, Skips: 0
+===============================================
 
-        ChromeOptions options = new ChromeOptions();
-        options.setCapability("goog:loggingPrefs", logs);
 
-        WebDriver driver = new ChromeDriver(options);
+===============================================
+Default suite
+Total tests run: 1, Passes: 0, Failures: 1, Skips: 0
+===============================================
 
-        try {
-            driver.get("https://example.com");
-
-            // Click something that triggers a console log with the URL
-            WebElement button = driver.findElement(By.id("clickMe"));
-            button.click();
-
-            // Wait a moment for logs to populate
-            Thread.sleep(3000);
-
-            // Get browser logs
-            LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
-
-            for (LogEntry entry : logEntries) {
-                String msg = entry.getMessage();
-                if (msg.contains("http")) { // crude filter to catch URLs
-                    System.out.println("Console Log with URL: " + msg);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            driver.quit();
-        }
-    }
-}
+Application is shutting down. Closing all database connections...
